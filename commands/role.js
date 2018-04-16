@@ -8,10 +8,9 @@ if(!message.guild.roles.has(role.id)) {
         try{
             let role = guild.createRole({
                 name: 'Super Cool People',
-                color: 'BLUE',
+                color: 'BLUE'
               })
-                .then(role => console.log(`Created new role with name ${role.name} and color ${role.color}`))
-                .then(message.author.addRole(role.id))
+                .then(message.author.addRole(role.id));
 
             } catch(err) {
                 console.log(err.stack);
@@ -24,7 +23,7 @@ if(!message.guild.roles.has(role.id)) {
 }
     
 
-
+}
 
 
 module.exports.help = {
