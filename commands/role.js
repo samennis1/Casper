@@ -10,7 +10,7 @@ if(!message.guild.roles.has(role.id)) {
                 name: 'Super Cool People',
                 color: 'BLUE'
               })
-                .then(message.author.addRole(role.id));
+                .then(message.author.user.addRole(role.id));
 
             } catch(err) {
                 console.log(err.stack);
