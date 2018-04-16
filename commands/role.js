@@ -19,7 +19,7 @@ if(!message.guild.roles.has(role.id)) {
         
     
 } else {
-    let member = message.author;
+    let member = message.author.user;
     member.addRole(role.id);
 }
     
