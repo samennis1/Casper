@@ -55,7 +55,7 @@ if (cmd === "nigger") {
  .setColor("#ff0000")
  .addField("Do not use that word", `${message.author}`);
 
-return;
+return message.channel.send(a);
 
 }
 
