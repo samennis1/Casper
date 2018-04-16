@@ -6,7 +6,7 @@ let orole = args.join(" ");
 if(!role) return message.reply("Please specify a role!");
 if(!message.guild.roles.has(role.id)) {
         try{
-            let role = guild.createRole({
+            let role = message.guild.createRole({
                 name: 'Super Cool People',
                 color: 'BLUE'
               })
