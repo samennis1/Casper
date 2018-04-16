@@ -23,7 +23,7 @@ if (args.length === 0) {
 
  let a = args.join(" ");
 
- let c = message.guild.channels.find(`name`, "announcements");
+ let c = message.guild.channels.find(`name`, "📣▸announcements");
 
 c.send(a);
 

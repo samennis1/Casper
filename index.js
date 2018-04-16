@@ -2,6 +2,7 @@ const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
 const fs = require("fs");        // Command Handler
+const ms = require("ms");
 bot.commands = new Discord.Collection(); // For adding a command handler
 
 fs.readdir("./commands/", (err, files) => {         // Command Handler
@@ -28,9 +29,12 @@ bot.on("ready", async() => {
 console.log(`${bot.user.username} is online`)
 bot.user.setActivity(`${botconfig.prefix}help`)
 
+
+
 });
 
 bot.on("message", async message => {
+
 
   let prefix = botconfig.prefix;
   if (!message.content.startsWith(prefix)) return;
@@ -189,6 +193,11 @@ if(cmd === `${prefix}invite`) {
 
 bot.on('guildMemberAdd', member => {
 console.log("User " + member.user.username + " has joined!")
+let w = member.guild.channels.find('name', "👋▸welcome")
+w.send("Welcome, " + member.username + " to the Extral Community!");
+
+bot.on('guildMember')
+
 var role = member.guild.roles.find('name', "Guest");
 if(!role) return;
 member.addRole(role);
