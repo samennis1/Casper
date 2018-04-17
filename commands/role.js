@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
     if (!findRole) {
         try {
             let findRole = message.guild.createRole({
-                name: `${role}`
+                name: `${Role}`
             }) 
         } catch (err) {
             console.log(err.stack);
