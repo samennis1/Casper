@@ -1,5 +1,6 @@
 {
   "token": "MjQzNjc5NjUzOTk3NDQ1MTIx.Dap7-A.KkmdFfcYmth0-NdImbMNrJ7UIu4",
   "prefix": "!",
-  "logchannel": "logs"
+  "logchannel": "logs",
+  "announcements": "announcements"
 }

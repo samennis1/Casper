@@ -89,7 +89,7 @@ if (args[0] === "toggle") {
       .setDescription("Prefix Set")
       .addField("Prefix set to", `${botconfig.prefix}`)
       .addField("Set by", `${message.author}`);
-      let announ = message.guild.channels.find(`name`, "announcements")
+      let announ = message.guild.channels.find(`name`, botconfig.announcements)
       announ.send(a);
     }
   }

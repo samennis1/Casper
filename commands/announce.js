@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const botconfig = require("../botconfig");
 
 module.exports.run = async (bot, message, args) => {
 
@@ -23,7 +24,7 @@ if (args.length === 0) {
 
  let a = args.join(" ");
 
- let c = message.guild.channels.find(`name`, "📣▸announcements");
+ let c = message.guild.channels.find(`name`, botconfig.announcements);
 
 c.send(a);
 
