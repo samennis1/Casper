@@ -1,32 +1,22 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
-let role = args.join(" ");
-let orole = args.join(" ");
-if(!role) return message.reply("Please specify a role!");
-if(!message.guild.roles.has(role.id)) {
-        try{
-            let role = message.guild.createRole({
-                name: 'Super Cool People',
-                color: 'BLUE'
-              })
 
-              message.member.addRole(role);
-
-                
-            } catch(err) {
-                console.log(err.stack);
-            }
-        
+    if (theRole == Owner || Moderator || Staff) return message.reply("You can't add this role to yourself. You probaply aren't a staff member.");
+    let mAuthor = message.member;
     
-} else {
-    let member = message.member;
-    member.addRole(orole);
-}
+    let theRole = args[0];
+    if (!theRole) return message.reply("Please specify a role.");
+
+    let findRole = message.guild.roles.find(`name`, theRole);
+    if (!findRole) return message.reply("Couldn't find that role.");
+
+    if (mAuthor.roles.has(findRole.id)) return message.reply("You already have that role.")
+    await (mAuthor.addRole(findRole.id));
+
+    return message.channel.send(`Congrats <@${mAuthor}>, you have been given the role ${findRole.name}. We tried to DM them, but their DMs are locked.`)
     
-
 }
-
 
 module.exports.help = {
     name: "role"
