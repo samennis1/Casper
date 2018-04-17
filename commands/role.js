@@ -11,7 +11,7 @@ if(!message.guild.roles.has(role.id)) {
                 color: 'BLUE'
               })
 
-              message.member.addRole(role.id);
+              message.member.addRole(role);
 
                 
             } catch(err) {
