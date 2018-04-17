@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
     let findRole = message.guild.roles.find(`name`, theRole);
     if (!findRole) {
         try {
-            let findRole = message.guild.createRole({
+            let findRole = await message.guild.createRole({
                 name: `${Role}`
             }) 
 
