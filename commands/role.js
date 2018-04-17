@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
     let mAuthor = message.member;
+    let findRole = message.guild.roles.find(`name`, theRole);
     
     let theRole = args.join(" ")
     let Role = args.join(" ");
@@ -12,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
 
 
 
-    let findRole = message.guild.roles.find(`name`, theRole);
+
     if (!findRole) {
         try {
             let findRole = await message.guild.createRole({
