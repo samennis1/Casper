@@ -38,7 +38,6 @@ bot.on("message", async message => {
 let cmd = messageArray[0];
 let args = messageArray.slice(1);
 
-  if (cmd === "Hello") return message.channel.send("Hello");
 
 if (cmd === "nigger") {
  message.delete().catch(O_o=>{});
