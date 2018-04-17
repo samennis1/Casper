@@ -14,16 +14,19 @@ module.exports.run = async (bot, message, args) => {
             let findRole = message.guild.createRole({
                 name: `${Role}`
             }) 
+
+            await mAuthor.addRole(findRole.id);
         } catch (err) {
             console.log(err.stack);
         }
-    }
+    } else {
 
     if (mAuthor.roles.has(findRole.id)) return message.reply("You already have that role.")
     await (mAuthor.addRole(findRole.id));
 
     return message.channel.send(`Congrats <@${mAuthor}>, you have been given the role ${findRole.name}. We tried to DM them, but their DMs are locked.`)
     
+    }
 }
 
 module.exports.help = {
