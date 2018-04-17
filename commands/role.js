@@ -19,7 +19,7 @@ if(!message.guild.roles.has(role.id)) {
     
 } else {
     let member = message.member;
-    member.addRole(role.id);
+    member.addRole(orole);
 }
     
 
