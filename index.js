@@ -34,6 +34,9 @@ bot.user.setActivity(`${botconfig.prefix}help`)
 });
 
 bot.on("message", async message => {
+  let messageArray = message.content.split(" ");
+let cmd = messageArray[0];
+let args = messageArray.slice(1);
 
   if (cmd === "Hello") return message.channel.send("Hello");
 
@@ -56,9 +59,7 @@ if (cmd === "noodles") return message.channel.send("https://www.google.ie/search
 if (message.author.bot) return;
 if (message.channel.type == "dm") return;
 
-let messageArray = message.content.split(" ");
-let cmd = messageArray[0];
-let args = messageArray.slice(1);
+
 
 
 
