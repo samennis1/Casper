@@ -35,18 +35,7 @@ bot.user.setActivity(`${botconfig.prefix}help`)
 
 bot.on("message", async message => {
 
-
-  let prefix = botconfig.prefix;
-  if (!message.content.startsWith(prefix)) return;
-
-if (message.author.bot) return;
-if (message.channel.type == "dm") return;
-
-let messageArray = message.content.split(" ");
-let cmd = messageArray[0];
-let args = messageArray.slice(1);
-
-if (cmd === "Hello") return message.channel.send("Hello");
+  if (cmd === "Hello") return message.channel.send("Hello");
 
 if (cmd === "nigger") {
  message.delete().catch(O_o=>{});
@@ -60,6 +49,18 @@ return message.channel.send(a);
 }
 
 if (cmd === "noodles") return message.channel.send("https://www.google.ie/search?q=Noodles&safe=strict&tbm=isch&source=iu&ictx=1&fir=ZRfw6cO0yICfyM%253A%252CvkZRjtsniVG8vM%252C_&usg=___Rrq5HzJlq3xYL-KbIJqR-j0PCQ%3D&sa=X&ved=0ahUKEwiXhp30lKnaAhVBIVAKHS89A8UQ_h0I-wEwFw#imgrc=ZRfw6cO0yICfyM");
+
+  let prefix = botconfig.prefix;
+  if (!message.content.startsWith(prefix)) return;
+
+if (message.author.bot) return;
+if (message.channel.type == "dm") return;
+
+let messageArray = message.content.split(" ");
+let cmd = messageArray[0];
+let args = messageArray.slice(1);
+
+
 
 
 
