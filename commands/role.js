@@ -4,8 +4,9 @@ module.exports.run = async (bot, message, args) => {
     let mAuthor = message.member;
     let findRole = message.guild.roles.find(`name`, theRole);
     
-    let theRole = args.join(" ")
+    let theRole = args.join(" ");
     let Role = args.join(" ");
+
     if (theRole === "Owner" && "Moderator" && "Staff" && "owner" && "moderator" && "staff" && "Admin" && "admin" && "manager" && "Manager") return message.reply("You can't add this role to yourself. You probaply aren't a staff member.");
     if (!theRole) return message.reply("Please specify a role.");
     if (mAuthor.roles.has(findRole.id)) return message.reply("You already have that role.")
