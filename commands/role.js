@@ -9,7 +9,9 @@ if(!message.guild.roles.has(role.id)) {
             let role = message.guild.createRole({
                 name: 'Super Cool People',
                 color: 'BLUE'
-              }).then(message.member.addRole(role.id));
+              })
+
+              message.member.addRole(role.id);
 
                 
             } catch(err) {
