@@ -197,8 +197,6 @@ console.log("User " + member.user.username + " has joined!")
 let w = member.guild.channels.find('name', "👋▸welcome")
 w.send("Welcome, " + member.username + " to the Extral Community!");
 
-bot.on('guildMember')
-
 var role = member.guild.roles.find('name', "Guest");
 if(!role) return;
 member.addRole(role);
