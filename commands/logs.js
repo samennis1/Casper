@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
-const botconfig = require("../botconfig");
+const fs = require("fs")
+const botconfig = JSON.parse(fs.readFileSync("../botconfig.json", "utf8"));
 
 module.exports.run = async (bot, message, args) => {
     let author = message.member;
