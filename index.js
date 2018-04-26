@@ -51,6 +51,7 @@ if(message.content.startsWith("https://")) {
 }
 
 if(cmd === "porn") {
+  message.delete().catch(O_o=>{});
   message.reply("No")
   return;
 }
