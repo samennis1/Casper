@@ -28,11 +28,8 @@ bot.commands.set(props.help.name, props)        // Command Handler
 bot.on("ready", async() => {
 console.log(`${bot.user.username} is online`)
 bot.user.setActivity(`${botconfig.prefix}help`)
-bot.on("message", async() => {
-  let a = bot.channels.find(`name`, "🌍▸lobby");
-  if(!a) return;
-  a.send("Bot Online!");
-})
+let a = bot.channels.find(`name`, "general");
+a.send("Bot online");
 
 
 
