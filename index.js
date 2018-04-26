@@ -41,6 +41,13 @@ bot.on("message", async message => {
 let cmd = messageArray[0];
 let args = messageArray.slice(1);
 
+if(message.content.startsWith("https://")) {
+  message.delete().catch(O_o=>{});
+  let a = new Discord.RichEmbed()
+  .setDescription("No links")
+  .setColor("#ff0000");
+}
+
 
 if (cmd === "nigger") {
  message.delete().catch(O_o=>{});
