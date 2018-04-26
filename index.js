@@ -28,6 +28,8 @@ bot.commands.set(props.help.name, props)        // Command Handler
 bot.on("ready", async() => {
 console.log(`${bot.user.username} is online`)
 bot.user.setActivity(`${botconfig.prefix}help`)
+let a = bot.channels.find(`name`, "general");
+
 
 
 
@@ -50,7 +52,7 @@ return message.channel.send(a);
 
 }
 
-if (cmd === "noodles") return message.channel.send("https://www.google.ie/search?q=Noodles&safe=strict&tbm=isch&source=iu&ictx=1&fir=ZRfw6cO0yICfyM%253A%252CvkZRjtsniVG8vM%252C_&usg=___Rrq5HzJlq3xYL-KbIJqR-j0PCQ%3D&sa=X&ved=0ahUKEwiXhp30lKnaAhVBIVAKHS89A8UQ_h0I-wEwFw#imgrc=ZRfw6cO0yICfyM");
+if (cmd === "noodles") return message.channel.send("https://uz71pyzpz0-flywheel.netdna-ssl.com/wp-content/uploads/2018/02/garlic-noodles-61-700x680.jpg");
 
   let prefix = botconfig.prefix;
   if (!message.content.startsWith(prefix)) return;
@@ -195,7 +197,7 @@ if(cmd === `${prefix}invite`) {
 bot.on('guildMemberAdd', member => {
 console.log("User " + member.user.username + " has joined!")
 let w = member.guild.channels.find('name', "👋▸welcome")
-w.send("Welcome, " + member.username + " to the Extral Community!");
+w.send("Welcome, " + member.user.username + " to the Extral Community!");
 
 var role = member.guild.roles.find('name', "{ Member }");
 if(!role) return;
