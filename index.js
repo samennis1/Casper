@@ -50,6 +50,11 @@ if(message.content.startsWith("https://")) {
   message.channel.send(a);
 }
 
+if(cmd === "porn") {
+  message.reply("No")
+  return;
+}
+
 
 if (cmd === "nigger") {
  message.delete().catch(O_o=>{});
