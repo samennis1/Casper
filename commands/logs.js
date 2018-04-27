@@ -12,7 +12,9 @@ module.exports.run = async (bot, message, args) => {
     if(!findC) return message.reply("No channel found!");
    botconfig.logchannel = channel;
 
-   fs.writeFile("../botconfig.json", JSON.stringify(botconfig));
+   fs.writeFile("../botconfig.json", JSON.stringify(botconfig), function(error) {
+       console.log(error);
+   });
 
 }
 

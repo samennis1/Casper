@@ -80,7 +80,7 @@ if (args[0] === "toggle") {
   botconfig.prefix = args[1];
 
   fs.writeFile("../botconfig.json", JSON.stringify(botconfig.prefix), function(error){
-      if(error) throw error;
+      if(error) console.log(error);
 
   });
 
