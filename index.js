@@ -46,6 +46,7 @@ if(message.content.startsWith("https://")) {
   let a = new Discord.RichEmbed()
   .setDescription("No links")
   .setColor("#ff0000");
+  if(message.author.bot === true) return;
 
   message.channel.send(a);
 }
