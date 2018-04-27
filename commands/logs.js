@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const fs = require("fs")
-const botconfig = JSON.parse(fs.readFileSync("../botconfig.json", "utf8"));
+const botconfig = JSON.parse(fs.readFileSync("./botconfig.json", "utf8"));
 
 module.exports.run = async (bot, message, args) => {
     let author = message.member;
@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
     if(!findC) return message.reply("No channel found!");
    botconfig.logchannel = channel;
 
-   fs.writeFile("./botconfig.json", JSON.stringify(botconfig));
+   fs.writeFile("../botconfig.json", JSON.stringify(botconfig));
 
 }
 
