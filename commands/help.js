@@ -15,7 +15,9 @@ module.exports.run = async (bot, message, args) => {
  .addField(`${prefix}announce`, "Chats in #announcements {Owner only}")
  .addField(`${prefix}tempmute`, "Mutes a player {Staff Only}")
  .addField(`${prefix}clear`, "Clear the number of specified messages {Staff Only}")
- .addField(`${prefix}someone`, "Chooses a random person (optional message after)");
+ .addField(`${prefix}someone`, "Chooses a random person (optional message after)")
+ .addField(`${prefix}evaluate`, "Evaluate code")
+ .addField(`${prefix}role`, "--Broken-- Self assign role");
 
    return message.channel.send(help);
 

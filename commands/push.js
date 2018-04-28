@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
-if(!message.author.roles.has("BotDev")) {
+if(!message.author.roles.contains("BotDev")) {
     let a = new Discord.RichEmbed()
     .setDescription("Casper | ERROR")
     .setColor("#ff0000")
