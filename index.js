@@ -228,7 +228,7 @@ console.log("User " + member.user.username + " has joined!")
 if(member.user.bot) {
   var role = member.guild.roles.find('name', "Bot");
   member.addRole(role);
-  let w = member.guild.channels.find('name', "👋▸welcome")
+  let w = member.guild.channels.find('name', "👋▸welcome-bye")
 w.send("Welcome, " + member.user.username + " to the Extral Community!");
 return;
 }
@@ -239,6 +239,16 @@ var role = member.guild.roles.find('name', "{ Member }");
 if(!role) return;
 member.addRole(role);
 });
+
+bot.on('guildMemberRemove', member => {
+  if(member.user.bot) {
+    let w = member.guild.channels.find('name', "👋▸welcome-bye")
+    w.send("Another bot leaves us, goodbye " + member.user.username);
+    return;
+  }
+  let w = member.guild.channels.find('name', "👋▸welcome-bye")
+w.send("Goodbye!, " + member.user.username);
+})
 
 
 
