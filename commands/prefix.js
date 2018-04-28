@@ -45,13 +45,13 @@ if (args[0] === "toggle") {
 
     } else if (locked === false) {
 
-      let a = new Discord.RichEmbed()
+      let b = new Discord.RichEmbed()
       .setDescription("Locked")
       .setColor("#ff0000");
 
       locked = true;
 
-      return message.channel.send(a);
+      return message.channel.send(b);
     }
 
 } else if(args[0] === "set"){
@@ -85,16 +85,18 @@ if (args[0] === "toggle") {
   });
 
 
-      let a = new Discord.RichEmbed()
-      .setDescription("Prefix Set")
-      .addField("Prefix set to", `${botconfig.prefix}`)
-      .addField("Set by", `${message.author}`);
       let announ = message.guild.channels.find(`name`, `${botconfig.announcements}`)
       if(!announ) {
         message.channel.send(a)
       }
-      announ.send(a);
+      
+      let info = new Discord.RichEmbed()
+      .setDescription("Prefix Set")
+      .addField("Prefix set to", `${botconfig.prefix}`)
+      .addField("Set by", `${message.author}`);
+      announ.send(info);
       // Hello
+
     }
   }
 }
