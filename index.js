@@ -224,6 +224,12 @@ if(cmd === `${prefix}invite`) {
 
 bot.on('guildMemberAdd', member => {
 console.log("User " + member.user.username + " has joined!")
+if(member.bot) {
+  var role = member.guild.roles.find('name', "Bot");
+  member.addRole(role);
+  let w = member.guild.channels.find('name', "👋▸welcome")
+w.send("Welcome, " + member.user.username + " to the Extral Community!");
+}
 let w = member.guild.channels.find('name', "👋▸welcome")
 w.send("Welcome, " + member.user.username + " to the Extral Community!");
 
