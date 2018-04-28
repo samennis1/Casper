@@ -229,11 +229,11 @@ if(member.user.bot) {
   var role = member.guild.roles.find('name', "Bot");
   member.addRole(role);
   let w = member.guild.channels.find('name', "👋▸welcome-bye")
-w.send("Welcome, " + member.user.username + " to the Extral Community!");
+  w.send("Welcome, " + `@<${member.user.id}>` + " to the Extral Community!");
 return;
 }
-let w = member.guild.channels.find('name', "👋▸welcome")
-w.send("Welcome, " + member.user.username + " to the Extral Community!");
+let w = member.guild.channels.find('name', "👋▸welcome-bye")
+w.send("Welcome, " + `@<${member.user.id}>` + " to the Extral Community!");
 
 var role = member.guild.roles.find('name', "{ Member }");
 if(!role) return;
