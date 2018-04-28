@@ -48,6 +48,4 @@ aliases: ['evaluate'],
 
 exports.help = {
     name: "eval",
-    description: "evaluates a js string",
-    usage: "eval <string>"
 }
