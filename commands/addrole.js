@@ -2,9 +2,6 @@ const Discord = require("discord.js");
 const botconfig = require("../botconfig");
 
 module.exports.run = async (bot, message, args) => {
-    if(args.length > 2) {
-        return message.reply("No further arguments required");
-    }
 let user = message.mentions.users.first();
 var role = args.slice(1).join(" ");
 var orole = args.slice(1).join(" ");
