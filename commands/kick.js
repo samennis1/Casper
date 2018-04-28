@@ -33,7 +33,7 @@ let a  = new Discord.RichEmbed()
     .setColor("#ff0000")
     .setThumbnail(bot.user.avatarURL)
     .addField("No logs channel specified!");
-   message.channel.send(a).then(msg => msg.delete(5000));
+   message.channel.send(a).then(msg => msg.delete(6000));
 
     message.guild.member(sUser).kick(kReason);
 
