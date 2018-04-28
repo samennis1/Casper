@@ -21,6 +21,13 @@ let a  = new Discord.RichEmbed()
 
   let kReason = args.join(" ").slice(22)
 
+  if(!bot.user.hasPermission("KICK_MEMBERS")) {
+    let a = new Discord.RichEmbed()
+    .setTitle("Casper | No permission!")
+    .setColor("#ff0000")
+    .setThumbnail(bot.user.avatarURL);
+  }
+
   let kReport = new Discord.RichEmbed()
   .setDescription("User Kicked")
   .addField("User:", `${sUser} has been kicked`)
