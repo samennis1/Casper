@@ -35,7 +35,16 @@ let a  = new Discord.RichEmbed()
     .setColor("#ff0000")
     .setThumbnail(bot.user.avatarURL)
     .addField("No logs channel specified!");
-    return message.channel.send(a).then(msg => msg.delete(5000));
+   message.channel.send(a).then(msg => msg.delete(5000));
+
+    message.guild.member(sUser).kick(kReason);
+
+    let b = new Discord.RichEmbed()
+    .setDescription("Casper | Kick")
+    .setColor("#ff0000")
+    .setThumbnail(bot.user.avatarURL)
+    .addField("User kicked!");
+   message.channel.send(b).then(msg => msg.delete(5000));
   }
 
   logs.send(kReport);
