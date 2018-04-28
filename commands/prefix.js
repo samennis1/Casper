@@ -14,22 +14,26 @@ if(message.author.id !== message.guild.ownerID) return message.channel.send("You
 message.delete().catch(O_o=>{});
 if(args.length < 0) {
 
-  let j = new Discord.RichEmbed()
-  .setDescription("Please provide arguments")
-  .setColor("#ff0000");
-
-  return message.channel.send(j).then(msg => msg.delete(5000));
+  let a = new Discord.RichEmbed()
+  .setDescription("Casper | ERROR")
+  .setColor("#ff0000")
+  .setThumbnail(bot.user.avatarURL)
+  .addField("Invalid Arguments")
+  .addField(`Usage: ${botconfig.prefix}prefix <Set | Toggle> <Prefix>`);
+  return message.channel.send(a).then(msg => msg.delete(5000));
 }
 
 
 
 if(!args[0]) {
 
-  let j = new Discord.RichEmbed()
-  .setDescription("Please provide arguments")
+  let a = new Discord.RichEmbed()
+  .setDescription("Casper | ERROR")
   .setColor("#ff0000")
-
-  return message.channel.send(j).then(msg => msg.delete(5000));
+  .setThumbnail(bot.user.avatarURL)
+  .addField("Invalid Arguments")
+  .addField(`Usage: ${botconfig.prefix}prefix <Set | Toggle> <Prefix>`);
+  return message.channel.send(a).then(msg => msg.delete(5000));
 }
 
 if (args[0] === "toggle") {
@@ -59,11 +63,13 @@ if (args[0] === "toggle") {
   let prefix = args[1];
   if(!prefix) {
 
-      let j = new Discord.RichEmbed()
-      .setDescription("Please provide arguments")
-      .setColor("#ff0000")
-
-      return message.channel.send(j).then(msg => msg.delete(5000));
+    let a = new Discord.RichEmbed()
+    .setDescription("Casper | ERROR")
+    .setColor("#ff0000")
+    .setThumbnail(bot.user.avatarURL)
+    .addField("Invalid Arguments")
+    .addField(`Usage: ${botconfig.prefix}prefix <Set | Toggle> <Prefix>`);
+    return message.channel.send(a).then(msg => msg.delete(5000));
 
   }
 
@@ -83,16 +89,18 @@ if (args[0] === "toggle") {
       if(error) console.log(error);
 
   });
-  let info = new Discord.RichEmbed()
-  .setDescription("Prefix Set")
-  .addField("Prefix set to", `${botconfig.prefix}`)
-  .addField("Set by", `${message.author}`);
+  let a = new Discord.RichEmbed()
+  .setDescription("Casper | Prefix Set")
+  .setColor("#ff0000")
+  .setThumbnail(bot.user.avatarURL)
+  .addField("Prefix Set ", `${prefix}`)
+  .addField("Prefix Set By ", `${message.author}` );
 
       let announ = message.guild.channels.find(`name`, `${botconfig.announcements}`)
       if(!announ) {
-        message.channel.send(info)
+        message.channel.send(q)
       } else {
-        announ.send(info);
+        announ.send(q);
       }
       
 

@@ -8,9 +8,31 @@ module.exports.run = async (bot, message, args) => {
     let Role = args.join(" ");
     let findRole = message.guild.roles.find(`name`, theRole);
 
-    if (theRole === "Owner" && "Moderator" && "Staff" && "owner" && "moderator" && "staff" && "Admin" && "admin" && "manager" && "Manager") return message.reply("You can't add this role to yourself. You probaply aren't a staff member.");
-    if (!theRole) return message.reply("Please specify a role.");
-    if (mAuthor.roles.has(findRole.id)) return message.reply("You already have that role.");
+    if (theRole === "Owner" && "Moderator" && "Staff" && "owner" && "moderator" && "staff" && "Admin" && "admin" && "manager" && "Manager"){
+        let a = new Discord.RichEmbed()
+        .setDescription("Casper | ERROR")
+        .setColor("#ff0000")
+        .setThumbnail(bot.user.avatarURL)
+        .addField("You cannot add this role to youreslf!");
+        return message.channel.send(a).then(msg => msg.delete(5000));
+    }
+    if (!theRole) {
+        let b = new Discord.RichEmbed()
+        .setDescription("Casper | ERROR")
+        .setColor("#ff0000")
+        .setThumbnail(bot.user.avatarURL)
+        .addField("Please specify a role");
+        return message.channel.send(b).then(msg => msg.delete(5000));
+    }
+
+    if (mAuthor.roles.has(findRole.id)) {
+        let a = new Discord.RichEmbed()
+        .setDescription("Casper | ERROR")
+        .setColor("#ff0000")
+        .setThumbnail(bot.user.avatarURL)
+        .addField("You already have this role!");
+        return message.channel.send(a).then(msg => msg.delete(5000));
+    }
     await (mAuthor.addRole(findRole.id));
 
 

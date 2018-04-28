@@ -9,7 +9,14 @@ module.exports.run = async (bot, message, args) => {
     let channel = args[0];
     let findC = message.guild.channels.get("name", channel);
 
-    if(!findC) return message.reply("No channel found!");
+    if(!findC) {
+        let a = new Discord.RichEmbed()
+        .setDescription("Casper | ERROR")
+        .setColor("#ff0000")
+        .setThumbnail(bot.user.avatarURL)
+        .addField("Channel not found!");
+        return message.channel.send(a).then(msg => msg.delete(5000));
+    }
    botconfig.logchannel = channel;
 
    fs.writeFile("../botconfig.json", JSON.stringify(botconfig), function(error) {

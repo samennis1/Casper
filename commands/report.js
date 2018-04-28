@@ -28,6 +28,16 @@ module.exports.run = async (bot, message, args) => {
 
   let logs = message.guild.channels.find(`name`, `${botconfig.logchannel}`);
   message.delete().catch(O_o=>{});
+
+  if(!logs) {
+    let a = new Discord.RichEmbed()
+    .setDescription("Casper | ERROR")
+    .setColor("#ff0000")
+    .setThumbnail(bot.user.avatarURL)
+    .addField("No logs channel specified");
+
+    return message.channel.send(a).then(msg => msg.delete(5000));
+  }
    logs.send(reportE);
 
    message.delete().catch(O_o=>{});

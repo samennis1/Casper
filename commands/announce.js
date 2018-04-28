@@ -26,6 +26,15 @@ if (args.length === 0) {
 
  let c = message.guild.channels.find(`name`, `botconfig.announcements`);
 
+ if(!c) {
+   let a = new Discord.RichEmbed()
+   .setDescription("Casper | ERROR")
+   .setColor("#ff0000")
+   .setThumbnail(bot.user.avatarURL)
+   .addField("No announcement channel specified!");
+   message.channel.send(a);
+ }
+
 c.send(a);
 
 
