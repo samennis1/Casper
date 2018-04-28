@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (bot,message,args) => {
+module.exports.run = async (bot, message, args) => {
 if(!message.author.roles.has("BotDev")) {
     let a = new Discord.RichEmbed()
     .setDescription("Casper | ERROR")
