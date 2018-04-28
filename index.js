@@ -229,6 +229,7 @@ if(member.user.bot) {
   member.addRole(role);
   let w = member.guild.channels.find('name', "👋▸welcome")
 w.send("Welcome, " + member.user.username + " to the Extral Community!");
+return;
 }
 let w = member.guild.channels.find('name', "👋▸welcome")
 w.send("Welcome, " + member.user.username + " to the Extral Community!");
