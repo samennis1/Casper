@@ -43,14 +43,16 @@ let args = messageArray.slice(1);
 
 if(message.content.startsWith("https://")) {
   if(message.author.bot === true) return;  
-  if(message.author.id !== "439745325863927826") {
+  if(message.author.id !== message.guild.ownerID) {
 message.delete().catch(O_o=>{});
   let a = new Discord.RichEmbed()
   .setDescription("No links")
   .setColor("#ff0000");
+  return;
   message.channel.send(a);
   } else {
     message.reply("Link bypass");
+    return;
   }
 
 
