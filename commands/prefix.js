@@ -1,6 +1,6 @@
 
 const Discord = require("discord.js");
-const botconfig = require("./botconfig.json");
+const botconfig = require("../botconfig.json");
 const fs = require("fs");
 
 locked = false;
@@ -79,7 +79,7 @@ if (args[0] === "toggle") {
 
   botconfig.prefix = args[1];
 
-  fs.writeFile("./botconfig.json", JSON.stringify(botconfig.prefix), function(error){
+  fs.writeFile("../botconfig.json", JSON.stringify(botconfig.prefix), function(error){
       if(error) console.log(error);
 
   });
