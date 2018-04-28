@@ -40,10 +40,12 @@ let a  = new Discord.RichEmbed()
     message.guild.member(sUser).kick(kReason);
 
     let b = new Discord.RichEmbed()
-    .setDescription("Casper | Kick")
+    .setDescription("User kicked")
     .setColor("#ff0000")
     .setThumbnail(bot.user.avatarURL)
-    .addField("User kicked!");
+    .setFooter(" ")
+    .setTitle("Casper | Kick")
+    .addField("User ", `${sUser} has been kicked`);
    message.channel.send(b).then(msg => msg.delete(5000));
   }
 
