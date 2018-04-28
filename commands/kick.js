@@ -17,8 +17,6 @@ let a  = new Discord.RichEmbed()
 
   if (`${sUser}` == `${message.author}`) return message.channel.send("You can't warn yourself, silly.");
 
-
-
   let kReason = args.join(" ").slice(22)
 
   let kReport = new Discord.RichEmbed()
