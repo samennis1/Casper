@@ -48,11 +48,12 @@ message.delete().catch(O_o=>{});
   let a = new Discord.RichEmbed()
   .setDescription("No links")
   .setColor("#ff0000");
+  message.channel.send(a);
   } else {
     message.reply("Link bypass");
   }
 
-  message.channel.send(a);
+
 }
 
 if(cmd === "porn") {
