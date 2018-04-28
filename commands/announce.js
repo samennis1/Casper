@@ -24,7 +24,7 @@ if (args.length === 0) {
 
  let a = args.join(" ");
 
- let c = message.guild.channels.find(`name`, `botconfig.announcements`);
+ let c = message.guild.channels.find(`name`, `${botconfig.announcements}`);
 
  if(!c) {
    let a = new Discord.RichEmbed()
