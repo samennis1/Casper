@@ -91,6 +91,7 @@ if (args[0] === "toggle") {
       .addField("Set by", `${message.author}`);
       let announ = message.guild.channels.find(`name`, `${botconfig.announcements}`)
       announ.send(a);
+      // Hello
     }
   }
 }
