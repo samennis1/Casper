@@ -7,14 +7,14 @@ function clean(text) {
 }
 
 const Discord = require('discord.js');
-const config = require('../config.json');
+const config = require('../botconfig.json');
 
 exports.run = (client, message, args) => {
 
-    if(message.author.id !== config.ownerID) {
+    if(message.author.id !== message.guild.ownerID) {
     const embed = new Discord.RichEmbed()
     .setColor(0xFF5733)
-    .setTitle(':x: IMMORTAL | ERROR')
+    .setTitle(':x: Casper | ERROR')
     .setDescription(` **Insufficient Permissions**\nYou dont have permissions to use this command.`) 
     .setFooter(`Message has been sent from ${message.guild}`)//\n ${Date.now() - message.createdTimestamp} ms
     .setThumbnail(client.user.displayAvatarURL)
