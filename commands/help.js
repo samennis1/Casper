@@ -17,7 +17,8 @@ module.exports.run = async (bot, message, args) => {
  .addField(`${prefix}clear`, "Clear the number of specified messages {Staff Only}")
  .addField(`${prefix}someone`, "Chooses a random person (optional message after)")
  .addField(`${prefix}evaluate`, "Evaluate code")
- .addField(`${prefix}role`, "--Broken-- Self assign role");
+ .addField(`${prefix}role`, "--Broken-- Self assign role")
+ .setThumbnail(bot.user.avatarURL);
 
    return message.channel.send(help);
 
