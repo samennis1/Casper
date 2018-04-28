@@ -4,9 +4,7 @@ const bot = new Discord.Client({disableEveryone: true});
 const fs = require("fs");        // Command Handler
 const ms = require("ms");
 bot.commands = new Discord.Collection(); // For adding a command handler
-let token = new Token({
-  token: ENV['BOT_TOKEN']
-})
+const token = process.env.BOT_TOKEN;
 
 fs.readdir("./commands/", (err, files) => {         // Command Handler
 
