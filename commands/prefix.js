@@ -98,7 +98,7 @@ if (args[0] === "toggle") {
 
       let announ = message.guild.channels.find(`name`, `${botconfig.announcements}`)
       if(!announ) {
-        message.channel.send(q)
+        message.channel.send(a)
       } else {
         announ.send(q);
       }
