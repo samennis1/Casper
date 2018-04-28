@@ -83,17 +83,17 @@ if (args[0] === "toggle") {
       if(error) console.log(error);
 
   });
-
+  let info = new Discord.RichEmbed()
+  .setDescription("Prefix Set")
+  .addField("Prefix set to", `${botconfig.prefix}`)
+  .addField("Set by", `${message.author}`);
 
       let announ = message.guild.channels.find(`name`, `${botconfig.announcements}`)
       if(!announ) {
-        message.channel.send(a)
+        message.channel.send(info)
       }
       
-      let info = new Discord.RichEmbed()
-      .setDescription("Prefix Set")
-      .addField("Prefix set to", `${botconfig.prefix}`)
-      .addField("Set by", `${message.author}`);
+
       announ.send(info);
       // Hello
 
