@@ -30,7 +30,7 @@ if(!colourrole) {
     .setDescription(`This colour does not exist! Do ${botconfig.prefix}colours to find out the available colours!`);
     return message.channel.send(a).then(msg => msg.delete(5000));
 
-    if(!colourrole.contains("Nice Red" || "Cool Orange" || "Bright Yellow" || " Seaweed Green" || "Light Blue" || "Dark Blue" || "Hot Pink" || "Sexy Purple")) {
+    if(!colourrole.contains("Red" || "Orange" || "Yellow" || " Green" || "Light Blue" || "Dark Blue" || "Pink" || "Purple")) {
         let a = new Discord.RichEmbed()
         .setTitle("Casper | ERROR")
         .setColor("#ff0000")
@@ -49,7 +49,7 @@ if(!colourrole) {
             .setThumbnail(bot.user.avatarURL)
             .setDescription(`You already have this colour! To remove it do ${botconfig.prefix}remove!`);
             return message.channel.send(a).then(msg => msg.delete(5000));
-        } else if(user.roles.find("name", "Nice Red") && user.roles.find("name", "Cool Orange") && user.roles.find("name", "Bright Yellow") && user.roles.find("name", "Seaweed Green") && user.roles.find("name", "Light Blue") && user.roles.find("name", "Dark Blue") && user.roles.find("name", "Hot Pink") && user.roles.find("name", "Sexy Purple")) {
+        } else if(user.roles.find("name", "Red") && user.roles.find("name", "Orange") && user.roles.find("name", "Yellow") && user.roles.find("name", "Green") && user.roles.find("name", "Light Blue") && user.roles.find("name", "Dark Blue") && user.roles.find("name", "Pink") && user.roles.find("name", "Purple")) {
             let a = new Discord.RichEmbed()
             .setTitle("Casper | ERROR")
             .setColor("#ff0000")
