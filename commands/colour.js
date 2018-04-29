@@ -52,7 +52,7 @@ if(!colourrole) {
 
         user.addRole(colourrole)
         let a = new Discord.RichEmbed()
-        .setTitle("Casper | ERROR")
+        .setTitle("Casper | Colour Added!")
         .setColor("#ff0000")
         .setThumbnail(bot.user.avatarURL)
         .setDescription(`Colour <@${colourrole}> has been added!`);
