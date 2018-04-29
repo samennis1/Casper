@@ -12,8 +12,8 @@ if(args.length < 1) {
     .setDescription(`Please provide an argument! ${botconfig.prefix}colour <Set/Remove> <Colour>`);
     return message.channel.send(a).then(msg => msg.delete(5000));
 }
-let user = message.author;
-let colour = args.join(" ");
+let user = message.member;
+let colour = args.slice(0).join(" ");
 let colourrole = message.guild.roles.find("name", `${colour}`);
 
 if(!colourrole) {
@@ -49,8 +49,15 @@ if(!colourrole) {
             return message.channel.send(a).then(msg => msg.delete(5000));
         }
     } else if (args[0] == "remove") {
-          if(user.roles.find("name", `${colourrole}`)) {
-
+          if(!user.roles.find("name", `${colourrole}`)) {
+            let a = new Discord.RichEmbed()
+            .setTitle("Casper | ERROR")
+            .setColor("#ff0000")
+            .setThumbnail(bot.user.avatarURL)
+            .setDescription(`You don't have this colour role!`);
+            return message.channel.send(a).then(msg => msg.delete(5000));
+          } else {
+              user.removeRole(colourrole);
           }
         }
     }

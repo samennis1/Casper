@@ -38,7 +38,7 @@ let online = new Discord.RichEmbed()
 a.send(online).then(msg => msg.delete(5000));
 
 bot.on("message", async message => {
-  if(message.member.bot) return;
+  if(message.author.bot) return;
   if(message.channel.name !== "verification") return;
   if(!message.content.startsWith("accept")) return;
   let a = message.guild.roles.find("name", "Verify");
