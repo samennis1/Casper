@@ -246,6 +246,21 @@ if(member.user.bot) {
   w.send("Welcome, " + `<@${member.user.id}>` + " to the Extral Community!");
 return;
 }
+let welcome = new Discord.RichEmbed()
+.setTitle(`Welcome to the ${bot.guild.name}!`)
+.setColor("#00ff00")
+.setDescription("Here's a few things you should know!")
+.addField(`${botconfig.prefix}colours to see a list of colours`, `Then do ${botconfig.prefix}colour set <colour to set a colour!`)
+.addField(`${botconfig.prefix}report`, "This is used to report a member to all avaiable staff members")
+.addField(`When you join, `, "Read the rules in #rules and type accept in #verification once you agree!")
+.setThumbnail(bot.user.avatarURL)
+.addField("Enjoy the server!", "We're glad to have you :)");
+ try{
+  message.member.send()
+ } catch {
+   return;
+ }
+
 let w = member.guild.channels.find('name', "👋▸welcome-bye")
 w.send("Welcome, " + `<@${member.user.id}>` + " to the Extral Community!");
 
