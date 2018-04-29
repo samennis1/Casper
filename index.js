@@ -5,6 +5,8 @@ const fs = require("fs");        // Command Handler
 const ms = require("ms");
 bot.commands = new Discord.Collection(); // For adding a command handler
 const token = process.env.BOT_TOKEN;
+const mysql = require("mysql")
+
 
 fs.readdir("./commands/", (err, files) => {         // Command Handler
 
@@ -27,6 +29,10 @@ bot.commands.set(props.help.name, props)        // Command Handler
 });        // Command Handler
 
 bot.on("ready", async() => {
+  con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
+    if(err) throw err;
+    console.log(rows);
+  });
 console.log(`${bot.user.username} is online`)
 bot.user.setActivity(`${botconfig.prefix}help`)
 let a = bot.channels.find(`name`, "changes");
@@ -36,6 +42,24 @@ let online = new Discord.RichEmbed()
 .addField("Bot online", "New update was pushed to Github");
 
 a.send(online).then(msg => msg.delete(5000));
+});
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "141414",
+  database: "sadb"
+});
+
+con.connect(err => {
+  if (err) throw err;
+  console.log("Connected to database!");
+})
+
+function generateXp(max, min) {
+
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 bot.on("message", async message => {
   if(message.author.bot) return;
@@ -53,12 +77,12 @@ bot.on("message", async message => {
 })
 
 
-});
 
 bot.on("message", async message => {
   let messageArray = message.content.split(" ");
 let cmd = messageArray[0];
 let args = messageArray.slice(1);
+
 
 if(message.content.startsWith("https://")) {
   if(message.author.bot === true) return;  
@@ -110,7 +134,7 @@ if (message.channel.type == "dm") return;
 
 
 let commandfile = bot.commands.get(cmd.slice(prefix.length)) // Command Handler
-if(commandfile) commandfile.run(bot,message,args);
+if(commandfile) commandfile.run(bot,message,args, con);
 
 if(cmd === `${prefix}hello`) {
 
