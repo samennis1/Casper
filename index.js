@@ -132,7 +132,7 @@ return message.channel.send(botembed);
 }
 
 if(cmd === `${prefix}invite`) {
-  return message.channel.send("https://discordapp.com/oauth2/authorize?client_id=243679653997445121&scope=bot");
+  return message.channel.send("Closed to the public");
 
 
 }
