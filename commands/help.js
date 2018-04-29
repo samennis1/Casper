@@ -21,7 +21,8 @@ module.exports.run = async (bot, message, args) => {
  .setThumbnail(bot.user.avatarURL)
  .setColor("#00ff00");
   message.reply("Commands have been sent to your DM's!");
-   return message.author.dmChannel.send(help);
+   message.author.dmChannel.send(help);
+   return;
 
 }
 
