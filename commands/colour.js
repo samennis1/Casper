@@ -46,7 +46,7 @@ if(!colourrole) {
         .setColor("#ff0000")
         .setThumbnail(bot.user.avatarURL)
         .setDescription(`Colour ${colourrole} removed`);
-        return message.channel.send(a);
+        return message.channel.send(a).then(msg => msg.delete(5000));
     } else if (!user.roles.has(colourrole)) {
 
 
@@ -56,7 +56,7 @@ if(!colourrole) {
         .setColor("#ff0000")
         .setThumbnail(bot.user.avatarURL)
         .setDescription(`Colour ${colourrole} has been added!`);
-        return message.channel.send(a);
+        return message.channel.send(a).then(msg => msg.delete(5000));
     }
 
     
