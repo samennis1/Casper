@@ -30,14 +30,12 @@ bot.on("ready", async() => {
 console.log(`${bot.user.username} is online`)
 bot.user.setActivity(`${botconfig.prefix}help`)
 let a = bot.channels.find(`name`, "changes");
-let b = bot.channels.find(`name`, "#🆕▸server-updates");
 let online = new Discord.RichEmbed()
 .setDescription("Github Update Pushed")
 .setColor("#ff0000")
 .addField("Bot online", "New update was pushed to Github");
 
 a.send(online).then(msg => msg.delete(5000));
-b.send(online).then(msg => msg.delete(5000));
 
 bot.on("message", async message => {
   if(message.author.bot) return;
