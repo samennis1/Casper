@@ -37,6 +37,19 @@ let online = new Discord.RichEmbed()
 
 a.send(online).then(msg => msg.delete(5000));
 
+bot.on("message", async message => {
+  if(!message.channel == "verification") return;
+  if(!message.content == "accept") return;
+  let a = message.guild.roles.find("name", "Verify");
+  let b = message.guild.roles.find("name", "{ Member }")
+  if(message.member.roles.find("name", "{ Member }")) {
+    message.member.removeRole(a);
+  } else {
+    message.member.removeRole(a)
+    message.member.addRole(b)
+    message.member.send("Verification Complete");
+  }
+})
 
 
 });
@@ -235,7 +248,7 @@ return;
 let w = member.guild.channels.find('name', "👋▸welcome-bye")
 w.send("Welcome, " + `<@${member.user.id}>` + " to the Extral Community!");
 
-var role = member.guild.roles.find('name', "{ Member }");
+var role = member.guild.roles.find('name', "Verify");
 if(!role) return;
 member.addRole(role);
 });
