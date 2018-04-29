@@ -4,6 +4,7 @@ const botconfig = require("../botconfig");
 module.exports.run = async (bot, message, args) => {
 let user = message.mentions.users.first();
 var role = args.slice(1).join(" ");
+let person = message.guild.members.find("id", `${user.id}`);
 var orole = args.slice(1).join(" ");
 if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("No permission");
 if(!user) return message.reply("User doesn't exist");
@@ -19,7 +20,7 @@ if(!message.guild.roles.has(role.id)) {
     }
 }
 console.log("Role made");
-user.addRole(role);
+person.addRole(role);
 let log = message.guild.channels.find(`name`, `${botconfig.logchannel}`);
 message.delete().catch(O_o=>{});
 if (!log) return message.channel.send("No log channel provided");
