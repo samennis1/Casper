@@ -31,7 +31,7 @@ if(!colourrole) {
     return message.channel.send(a).then(msg => msg.delete(5000));
 } 
 
-if(!colourrole.contains("Red" || "Orange" || "Yellow" || " Green" || "Light Blue" || "Dark Blue" || "Pink" || "Purple")) {
+if(!colourrole.name.contains("Red" || "Orange" || "Yellow" || " Green" || "Light Blue" || "Dark Blue" || "Pink" || "Purple")) {
         let a = new Discord.RichEmbed()
         .setTitle("Casper | ERROR")
         .setColor("#ff0000")
