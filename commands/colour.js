@@ -39,7 +39,7 @@ if(!colourrole) {
         return message.channel.send(a);
     }
 } else {
-    if(user.roles.has(colourrole) || user.roles.find("name", "Red") && user.roles.find("name", "Orange") && user.roles.find("name", "Yellow") && user.roles.find("name", "Green") && user.roles.find("name", "Light Blue") && user.roles.find("name", "Dark Blue") && user.roles.find("name", "Pink") && user.roles.find("name", "Purple")) {
+    if(user.roles.has(colourrole) && user.roles.find("name", "Red") && user.roles.find("name", "Orange") && user.roles.find("name", "Yellow") && user.roles.find("name", "Green") && user.roles.find("name", "Light Blue") && user.roles.find("name", "Dark Blue") && user.roles.find("name", "Pink") && user.roles.find("name", "Purple")) {
         user.removeRole(colourrole)
         let a = new Discord.RichEmbed()
         .setTitle("Casper | Colour Removed")
@@ -55,7 +55,7 @@ if(!colourrole) {
         .setTitle("Casper | Colour Added!")
         .setColor("#ff0000")
         .setThumbnail(bot.user.avatarURL)
-        .setDescription(`Colour <@${colourrole}> has been added!`);
+        .setDescription(`Colour ${colourrole} has been added!`);
         return message.channel.send(a);
     }
 
