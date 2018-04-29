@@ -33,10 +33,6 @@ module.exports.run = async (bot, message, args) => {
         .addField("You already have this role!");
         return message.channel.send(a).then(msg => msg.delete(5000));
     }
-    await (mAuthor.addRole(findRole));
-
-
-
 
     if (!findRole) {
         try {
