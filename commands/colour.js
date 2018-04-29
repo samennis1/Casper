@@ -31,7 +31,7 @@ if(!colourrole) {
         .setColor("#ff0000")
         .setThumbnail(bot.user.avatarURL)
         .setDescription(`That is not a colour role! Do ${botconfig.prefix}colours to find out the available colours!`);
-        return message.channel.send(a).then(msg => msg.delete(5000));
+        return message.channel.send(a);
     }
 } else {
     if(args[0] == "set") {
