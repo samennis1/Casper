@@ -260,7 +260,7 @@ bot.on('guildMemberRemove', member => {
     let w = member.guild.channels.find('name', "👋▸welcome-bye")
     w.send("Another bot leaves us, goodbye " + member.user.username);
     return;
-  }
+  } 
   let w = member.guild.channels.find('name', "👋▸welcome-bye")
 w.send("Goodbye!, " + member.user.username);
 })
