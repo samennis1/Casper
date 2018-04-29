@@ -19,7 +19,7 @@ if(!message.guild.roles.has(role.id)) {
     }
 }
 console.log("Role made");
-user.addRole(`${role}`);
+user.addRole(role);
 let log = message.guild.channels.find(`name`, `${botconfig.logchannel}`);
 message.delete().catch(O_o=>{});
 if (!log) return message.channel.send("No log channel provided");

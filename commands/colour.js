@@ -75,6 +75,10 @@ if(!colourrole) {
             return message.channel.send(a).then(msg => msg.delete(5000));
           } else {
               user.removeRole(colourrole);
+              let remove = new Discord.RichEmbed()
+              .setTimestamp("Casper | Colour Removed!")
+              .setThumbnail(bot.user.avatarURL)
+              .setDescription(`${colour} has been removed!`);
           }
         } else {
             let a = new Discord.RichEmbed()
