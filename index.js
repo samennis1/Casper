@@ -247,7 +247,7 @@ if(member.user.bot) {
 return;
 }
 let welcome = new Discord.RichEmbed()
-.setTitle(`Welcome to the ${bot.guild.name}!`)
+.setTitle(`Welcome to the Extral!`)
 .setColor("#00ff00")
 .setDescription("Here's a few things you should know!")
 .addField(`${botconfig.prefix}colours to see a list of colours`, `Then do ${botconfig.prefix}colour set <colour to set a colour!`)

@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 
 module.exports.run = async (bot, message, args) => {
     message.delete();
-    message.member.send("Please use the names on the right (e.g red -> Nice Red)");
     let a = new Discord.RichEmbed()
     .setTitle("Casper | Colours")
     .setColor("#ff0000")
