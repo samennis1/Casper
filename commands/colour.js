@@ -14,7 +14,8 @@ if(args.length < 1) {
     return message.channel.send(a).then(msg => msg.delete(5000));
 }
 let user = message.member;
-let colour = args.slice(1).join(" ");
+let colour1 = args.slice(1).join(" ");
+let colour = colour1.toLowerCase;
 let colourrole = message.guild.roles.find("name", colour);
 
 if(!colourrole) {
@@ -25,7 +26,7 @@ if(!colourrole) {
     .setDescription(`This colour does not exist! Do ${botconfig.prefix}colours to find out the available colours!`);
     return message.channel.send(a).then(msg => msg.delete(5000));
 
-    if(colour !== "Red" || "Orange" || "Yellow" || "Green" || "Light Blue" || "Dark Blue" || "Pink" || "Purple") {
+    if(!colourrole.contains("Red" || "Orange" || "Yellow" || "Green" || "Light Blue" || "Dark Blue" || "Pink" || "Purple")) {
         let a = new Discord.RichEmbed()
         .setTitle("Casper | ERROR")
         .setColor("#ff0000")
