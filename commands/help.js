@@ -20,8 +20,9 @@ module.exports.run = async (bot, message, args) => {
  .addField(`${prefix}role`, "--Broken-- Self assign role")
  .setThumbnail(bot.user.avatarURL)
  .setColor("#00ff00");
+
   message.reply("Commands have been sent to your DM's!");
-   message.author.dmChannel.send(help);
+   message.author.send(help);
    return;
 
 }
