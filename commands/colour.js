@@ -14,7 +14,7 @@ if(args.length > 0) {
     .setTitle("Casper | ERROR")
     .setColor("#ff0000")
     .setThumbnail(bot.user.avatarURL)
-    .setDescription(`Please provide an argument! ${botconfig.prefix}colour <Set/Remove> <Colour>`);
+    .setDescription(`Please provide an argument! ${botconfig.prefix}colour  <Colour>`);
     return message.channel.send(a).then(msg => msg.delete(5000));
 }
 let user = message.member;
