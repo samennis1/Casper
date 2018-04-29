@@ -6,8 +6,8 @@ module.exports.run = async (bot, message, args) => {
     let author = message.member;
     if(!author.hasPermission("ADMINISTRATOR")) return message.reply("No Permission!");
     if(args > 0 || args < 0) return message.reply("Invalid Arguments!");
-    let channel = args[0];
-    let findC = message.guild.channels.get("name", channel);
+    let channel = args.slice(2, -1);
+    let findC = message.guild.channels.get(channel);
 
     if(!findC) {
         let a = new Discord.RichEmbed()

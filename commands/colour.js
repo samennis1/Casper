@@ -25,7 +25,7 @@ if(!colourrole) {
     .setDescription(`This colour does not exist! Do ${botconfig.prefix}colours to find out the available colours!`);
     return message.channel.send(a).then(msg => msg.delete(5000));
 
-    if(colour !== "Red" && "Orange" && "Yellow" && "Green" && "Light Blue" && "Dark Blue" && "Pink" && "Purple") {
+    if(colour !== "Red" || "Orange" || "Yellow" || "Green" || "Light Blue" || "Dark Blue" || "Pink" || "Purple") {
         let a = new Discord.RichEmbed()
         .setTitle("Casper | ERROR")
         .setColor("#ff0000")
