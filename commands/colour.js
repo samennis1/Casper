@@ -3,8 +3,8 @@ const botconfig = require('../botconfig.json');
 
 module.exports.run = async (bot, message, args) => {
 
-    function capitalizeFirstLetter(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
+    String.prototype.capitalize = function() {
+        return this.charAt(0).toUpperCase() + this.slice(1);
     }
 
     message.delete();
@@ -19,7 +19,7 @@ if(args.length < 1) {
 }
 let user = message.member;
 let colour1 = args.slice(1).join(" ").toLowerCase;
-let colour = capitalizeFirstLetter(colour1);
+let colour = String.prototype.capitalize(colour1);
 let colourrole = message.guild.roles.find("name", colour);
 
 if(!colourrole) {
