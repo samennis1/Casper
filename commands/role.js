@@ -15,9 +15,11 @@ module.exports.run = async (bot, message, args) => {
             if(disabled == true) {
                 disabled == false;
                 message.reply("Activated");
+                return;
             } else {
                 disabled == true;
                 message.reply("Disabled");
+                return;
             }
         }
     }
@@ -29,6 +31,7 @@ module.exports.run = async (bot, message, args) => {
         .setThumbnail(bot.user.avatarURL)
         .setColor("#ff0000");
         return message.channel.send(a).then(msg => msg.delete(5000));
+        return;
     }
     if (!theRole) {
         let b = new Discord.RichEmbed()
