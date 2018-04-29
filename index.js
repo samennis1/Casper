@@ -255,11 +255,7 @@ let welcome = new Discord.RichEmbed()
 .addField(`When you join, `, "Read the rules in #rules and type accept in #verification once you agree!")
 .setThumbnail(bot.user.avatarURL)
 .addField("Enjoy the server!", "We're glad to have you :)");
- try{
-  message.member.send()
- } catch {
-   return;
- }
+message.member.send(welcome);
 
 let w = member.guild.channels.find('name', "👋▸welcome-bye")
 w.send("Welcome, " + `<@${member.user.id}>` + " to the Extral Community!");
