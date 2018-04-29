@@ -85,7 +85,7 @@ bot.on("message", async message => {
     let sql;
 
     if(rows.length < 1) {
-          sql = `INSERT INTO xp (id, xp) VALUES ('${message.author.id}', ${genereateXp()})`
+          sql = `INSERT INTO xp (id, xp) VALUES ('${message.author.id}', ${genereateXp(50, 1)})`
     }
     con.query(sql, console.log);
   });
