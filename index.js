@@ -30,7 +30,7 @@ bot.on("ready", async() => {
 console.log(`${bot.user.username} is online`)
 bot.user.setActivity(`${botconfig.prefix}help`)
 let a = bot.channels.find(`name`, "changes");
-let b = bot.channels.find(`name`, "changes");
+let b = bot.channels.find(`name`, "#🆕▸server-updates");
 let online = new Discord.RichEmbed()
 .setDescription("Github Update Pushed")
 .setColor("#ff0000")
