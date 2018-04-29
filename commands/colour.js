@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
 
     message.delete();
 
-if(args.length < 1) {
+if(args.length > 0) {
     let a = new Discord.RichEmbed()
     .setTitle("Casper | ERROR")
     .setColor("#ff0000")
