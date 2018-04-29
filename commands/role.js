@@ -33,7 +33,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("You already have this role!");
         return message.channel.send(a).then(msg => msg.delete(5000));
     }
-    await (mAuthor.addRole(findRole.id));
+    await (mAuthor.addRole(findRole));
 
 
 
@@ -44,7 +44,7 @@ module.exports.run = async (bot, message, args) => {
                 name: `${Role}`
             }) 
 
-            await mAuthor.addRole(findRole.id);
+            await mAuthor.addRole(findRole);
         } catch (err) {
             console.log(err.stack);
         }
