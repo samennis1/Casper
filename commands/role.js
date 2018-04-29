@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
         return message.channel.send(b).then(msg => msg.delete(5000));
     }
 
-    if (mAuthor.roles.has(findRole.id)) {
+    if (mAuthor.roles.has(findRole)) {
         let a = new Discord.RichEmbed()
         .setDescription("Casper | ERROR")
         .setColor("#ff0000")
