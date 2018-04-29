@@ -25,7 +25,7 @@ if(!colourrole) {
     return message.channel.send(a).then(msg => msg.delete(5000));
 } else {
     if(args[0] == "set") {
-        if(!user.roles.find("name", `${colourrole}`)) {
+        if(!user.roles.has(colourrole)) {
             let a = new Discord.RichEmbed()
             .setTitle("Casper | ERROR")
             .setColor("#ff0000")
@@ -49,7 +49,7 @@ if(!colourrole) {
             return message.channel.send(a).then(msg => msg.delete(5000));
         }
     } else if (args[0] == "remove") {
-          if(!user.roles.find("name", `${colourrole}`)) {
+          if(!user.roles.has(colourrole)) {
             let a = new Discord.RichEmbed()
             .setTitle("Casper | ERROR")
             .setColor("#ff0000")
