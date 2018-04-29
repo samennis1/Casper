@@ -14,7 +14,7 @@ if(args.length < 1) {
 }
 let user = message.member;
 let colour = args.slice(0).join(" ");
-let colourrole = message.guild.roles.find("name", `${colour}`);
+let colourrole = message.guild.roles.find("name", colour);
 
 if(!colourrole) {
     let a = new Discord.RichEmbed()
@@ -59,6 +59,13 @@ if(!colourrole) {
           } else {
               user.removeRole(colourrole);
           }
+        } else {
+            let a = new Discord.RichEmbed()
+            .setTitle("Casper | ERROR")
+            .setColor("#ff0000")
+            .setThumbnail(bot.user.avatarURL)
+            .setDescription(`Please provide proper arguments! ${botconfig.prefix}colour <Set/Remove> <Colour>`);
+            return message.channel.send(a).then(msg => msg.delete(5000));
         }
     }
 }
