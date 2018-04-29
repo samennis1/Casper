@@ -45,9 +45,9 @@ if(!colourrole) {
         .setTitle("Casper | Colour Removed")
         .setColor("#ff0000")
         .setThumbnail(bot.user.avatarURL)
-        .setDescription(`Colour removed`);
+        .setDescription(`Colour ${colourrole} removed`);
         return message.channel.send(a);
-    } else {
+    } else if (!user.roles.has(colourrole)) {
 
 
         user.addRole(colourrole)
@@ -55,7 +55,7 @@ if(!colourrole) {
         .setTitle("Casper | ERROR")
         .setColor("#ff0000")
         .setThumbnail(bot.user.avatarURL)
-        .setDescription(`Colour <@${colourrole.id}> has been added!`);
+        .setDescription(`Colour <@${colourrole}> has been added!`);
         return message.channel.send(a);
     }
 
