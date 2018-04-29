@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
 
 
 
-    if(disable == true) {
+    if(disabled == true) {
         let a = new Discord.RichEmbed()
         .setTitle("Casper | Error")
         .setDescription("This command is locked!")
