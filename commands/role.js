@@ -1,5 +1,7 @@
 const Discord = require("discord.js");
 
+let disabled = false;
+
 module.exports.run = async (bot, message, args) => {
     let mAuthor = message.member;
 
@@ -8,6 +10,26 @@ module.exports.run = async (bot, message, args) => {
     let Role = args.join(" ");
     let findRole = message.guild.roles.find(`name`, theRole);
 
+    if(message.author.id === message.guild.ownerID) {
+        if(args[0] == "disable") {
+            if(disabled == true) {
+                disabled == false;
+                message.reply("Activated");
+            } else {
+                disabled == true;
+                message.reply("Disabled");
+            }
+        }
+    }
+
+    if(disable = true) {
+        let a = new Discord.RichEmbed()
+        .setTitle("Casper | Error")
+        .setDescription("This command is locked!")
+        .setThumbnail(bot.user.avatarURL)
+        .setColor("#ff0000");
+        return message.channel.send(a).then(msg => msg.delete(5000));
+    }
     if (!theRole) {
         let b = new Discord.RichEmbed()
         .setTitle("Casper | ERROR")
@@ -25,6 +47,8 @@ module.exports.run = async (bot, message, args) => {
         .setDescription("You cannot add this role to youreslf!");
         return message.channel.send(a).then(msg => msg.delete(5000));
     }
+
+
 
 
     if (mAuthor.roles.has(findRole)) {
