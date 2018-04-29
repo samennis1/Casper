@@ -29,10 +29,7 @@ bot.commands.set(props.help.name, props)        // Command Handler
 });        // Command Handler
 
 bot.on("ready", async() => {
-  con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
-    if(err) throw err;
-    console.log(rows);
-  });
+
 console.log(`${bot.user.username} is online`)
 bot.user.setActivity(`${botconfig.prefix}help`)
 let a = bot.channels.find(`name`, "changes");
@@ -79,6 +76,20 @@ bot.on("message", async message => {
 
 
 bot.on("message", async message => {
+
+
+  con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
+    if(err) throw err;
+    console.log(rows);
+
+    let sql;
+
+    if(rows.length < 1) {
+          sql = `INSERT INTO xp (id, xp) VALUES ('${message.author.id}', ${genereateXp()})`
+    }
+    con.query(sql, console.log);
+  });
+
   let messageArray = message.content.split(" ");
 let cmd = messageArray[0];
 let args = messageArray.slice(1);
