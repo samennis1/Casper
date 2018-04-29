@@ -3,7 +3,7 @@ const botconfig = require('../botconfig.json');
 
 module.exports.run = async (bot, message, args) => {
 
-    message.delete().catch(O_o={});
+    message.delete();
 
 if(args.length < 1) {
     let a = new Discord.RichEmbed()
