@@ -5,26 +5,27 @@ let disabled = false;
 module.exports.run = async (bot, message, args) => {
     let mAuthor = message.member;
 
-    
-    let theRole = args.join(" ");
-    let Role = args.join(" ");
-    let findRole = message.guild.roles.find(`name`, theRole);
-
     if(message.author.id === message.guild.ownerID) {
         if(args[0] == "disable") {
             if(disabled == true) {
-                disabled == false;
+                disabled = false;
                 message.reply("Activated");
                 return;
             } else {
-                disabled == true;
+                disabled = true;
                 message.reply("Disabled");
                 return;
             }
         }
     }
+    
+    let theRole = args.join(" ");
+    let Role = args.join(" ");
+    let findRole = message.guild.roles.find(`name`, theRole);
 
-    if(disable = true) {
+
+
+    if(disable == true) {
         let a = new Discord.RichEmbed()
         .setTitle("Casper | Error")
         .setDescription("This command is locked!")
