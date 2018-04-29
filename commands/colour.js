@@ -31,7 +31,7 @@ if(!colourrole) {
     return message.channel.send(a).then(msg => msg.delete(5000));
 } 
 
-if(!colourrole.name.startsWith("Red" || "Orange" || "Yellow" || " Green" || "Light Blue" || "Dark Blue" || "Pink" || "Purple")) {
+if(!colourrole.includes("Red" || "Orange" || "Yellow" || " Green" || "Light Blue" || "Dark Blue" || "Pink" || "Purple")) {
         let a = new Discord.RichEmbed()
         .setTitle("Casper | ERROR")
         .setColor("#ff0000")
@@ -39,7 +39,7 @@ if(!colourrole.name.startsWith("Red" || "Orange" || "Yellow" || " Green" || "Lig
         .setDescription(`That is not a colour role! Do ${botconfig.prefix}colours to find out the available colours!`);
         return message.channel.send(a);
     }
-    if(user.roles.has(colourrole) && user.roles.find("name", "Red") && user.roles.find("name", "Orange") && user.roles.find("name", "Yellow") && user.roles.find("name", "Green") && user.roles.find("name", "Light Blue") && user.roles.find("name", "Dark Blue") && user.roles.find("name", "Pink") && user.roles.find("name", "Purple")) {
+    if(user.roles.has(colourrole)) {
         user.removeRole(colourrole)
         let a = new Discord.RichEmbed()
         .setTitle("Casper | Colour Removed")
