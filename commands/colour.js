@@ -18,8 +18,7 @@ if(args.length < 1) {
     return message.channel.send(a).then(msg => msg.delete(5000));
 }
 let user = message.member;
-let colour1 = args.slice(1).join(" ").toLowerCase;
-let colour = String.prototype.capitalize(colour1);
+let colour = args.slice(1).join(" ")
 let colourrole = message.guild.roles.find("name", colour);
 
 if(!colourrole) {
