@@ -7,8 +7,12 @@ module.exports.run = async (message, bot, args) => {
             .setThumbnail(message.member.avatarURL);
 
             return message.reply(a);
-        } else if (args.length === 0 && args.length < 1) {
+        } else if (args.length < 0 && args.length < 1) {
             let rUser = message.mentions.users.first();
+            if(rUser) {
+                message.reply("User not found!");
+                return;
+            }
             let a = new Discord.RichEmbed()
             .setDescription("Avatar")
             .setThumbnail(rUser.user.avatarURL);
