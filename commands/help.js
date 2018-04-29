@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
 
  let prefix = botconfig.prefix;
  let help = new Discord.RichEmbed()
- .setDescription("Casper Help")
+ .setTitle("Casper Help")
  .addField(`${prefix}help`, "This command, :joy:")
  .addField(`${prefix}kick`, "Kick a player {Staff Only}")
  .addField(`${prefix}ban`, "Ban a player {Staff Only}")
