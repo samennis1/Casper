@@ -48,7 +48,7 @@ let a  = new Discord.RichEmbed()
   }
 
   logs.send(kReport);
-  message.channel.send(`<@${rUser.id}> has been kicked!`)
+  message.channel.send(`<@${sUser.id}> has been kicked!`)
 
   message.guild.member(sUser).kick(kReason);
 
