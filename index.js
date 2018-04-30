@@ -51,7 +51,7 @@ var con = mysql.createConnection({
 });
 
 con.connect(err => {
-  if (err) console.log(err.stack);
+  if (err) throw err;
   console.log("Connected to database!");
 });
 
@@ -83,7 +83,7 @@ bot.on("message", async message => {
   if (message.channel.type == "dm") return;
 
   con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
-    if(err) console.log(err);
+    if(err) throw err;
     
     console.log(rows);
 
