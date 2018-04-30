@@ -8,3 +8,7 @@ module.exports.run = async (bot, message, args, con) {
       message.channel.send(xp);
     });
 }
+
+module.exports.help = {
+    "name": "xp"
+}
