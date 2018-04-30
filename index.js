@@ -43,11 +43,11 @@ a.send(online).then(msg => msg.delete(5000));
 });
 
 var con = mysql.createConnection({
-  host: "99.000webhost.io",
+  host: "db4free.net",
   port: "3306",
-  user: "id5584969_samennis1",
+  user: "samennis1",
   password: password,
-  database: "sadb"
+  database: "xp_information"
 });
 
 con.connect(err => {
