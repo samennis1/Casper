@@ -8,6 +8,11 @@ const token = process.env.BOT_TOKEN;
 const mysql = require("mysql")
 const password = process.env.MYSQL_PASSWORD;
 
+function genXp() {
+
+  return Math.floor(Math.random() * (50 - 1 + 1)) + 1;
+}
+
 
 fs.readdir("./commands/", (err, files) => {         // Command Handler
 
@@ -55,10 +60,7 @@ con.connect(err => {
   console.log("Connected to database!");
 });
 
-function generateXp(max, min) {
 
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
 bot.on("message", async message => {
   if(message.author.bot) return;
@@ -90,7 +92,11 @@ bot.on("message", async message => {
     let sql;
 
     if(rows.length < 1) {
-          sql = `INSERT INTO xp (id, xp) VALUES ('${message.author.id}', ${genereateXp(50, 1)})`
+          sql = `INSERT INTO xp (id, xp) VALUES ('${message.author.id}', ${genXp()})`
+    } else {
+      let xp = rows[0].xp;
+
+      sql = `UPDATE xp SET xp = ${xp + genXp()} WHERE id = ${message.author.id}`
     }
     con.query(sql, console.log);
   });
