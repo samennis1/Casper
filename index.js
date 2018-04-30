@@ -102,6 +102,14 @@ bot.on("message", async message => {
        let a = message.guild.roles.find("name", "Level 1") 
        if(!a) return;
        message.member.addRole(a);
+       let a = new Discord.RichEmbed()
+       .setTitle("Casper | Role Added")
+       .setDescription("Congratulations! You have achieved Level 1!")
+       .setFooter("New level recieved!")
+       .setColor("#00ff00")
+       .setThumbnail(bot.user.avatarURL);
+
+       message.channel.send(a).then(msg => msg.delete(5000));
        return;
           
         
