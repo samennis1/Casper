@@ -106,6 +106,7 @@ bot.on("message", async message => {
        if(message.member.roles.has(a)) {
          message.member.removeRole(a);
          message.member.send("Sneaky, trying to add a role without the XP, nop");
+         return;
        }
       } else {
 
@@ -129,6 +130,7 @@ bot.on("message", async message => {
         if(message.member.roles.has(b)) {
           message.member.removeRole(b);
           message.member.send("Sneaky, trying to add a role without the XP, nop");
+          return;
         }
       } else {
 
