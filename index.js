@@ -101,7 +101,7 @@ bot.on("message", async message => {
       let a = message.guild.roles.find("name", "Level 1") 
       let b = message.guild.roles.find("name", "Level 2") 
 
-      if(!xp >= 1000) {
+      if(!xp < 1000) {
         if(!a) return;
        if(message.member.roles.has(a)) {
          message.member.removeRole(a);
@@ -125,7 +125,7 @@ bot.on("message", async message => {
         
       }
 
-      if(!xp >= 2000) {
+      if(!xp < 2000) {
         if(!b) return;
         if(message.member.roles.has(b)) {
           message.member.removeRole(b);
