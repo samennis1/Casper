@@ -98,44 +98,22 @@ bot.on("message", async message => {
 
       sql = `UPDATE xp SET xp = ${xp + genXp()} WHERE id = ${message.author.id}`
 
-      if(xp > 1000) {
-        let a = message.guild.roles.find("name", "Level 1") 
-    
+      let level1 = message.guild.roles.has("name", "Level 1");
+      let level2 = message.guild.roles.has("name", "Level 2");
+        if(xp >= 1000) {
+          if(message.member.roles.has(level1.id)) return;
 
-       if(!a) return;
-       if(message.member.roles.find(a)) return;
+          message.member.addRole(level1)
+        }
 
-       message.member.addRole(a);
-       let levelup = new Discord.RichEmbed()
-       .setTitle("Casper | Role Added")
-       .setDescription("Congratulations! You have achieved Level 1!")
-       .setFooter("New level recieved!")
-       .setColor("#00ff00")
-       .setThumbnail(bot.user.avatarURL);
+        if(xp >= 2000) {
+          if(message.member.roles.has(level2.id)) return;
 
-       message.channel.send(levelup).then(msg => msg.delete(5000));
-       return;
-          
-        
-      }
-
-      if(xp >= 2000) {
-        let a = message.guild.roles.find("name", "Level 2") 
-        if(message.member.roles.find(a)) return;
-
-        if(!a) return;
-        if(message.member.roles.find(a)) return;
-    
-        message.member.removeRole(a);
-        message.member.addRole(b);
-        return;
-
-      }
-
-
+          message.member.addRole(level2)
+        }
 
     }
-    con.query(sql);
+
   });
 
   let messageArray = message.content.split(" ");
