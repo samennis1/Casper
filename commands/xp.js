@@ -13,6 +13,8 @@ module.exports.run = async (bot, message, args, con) => {
 
 
       let xp = rows[0].xp;
+
+      if(xp == null) return;
       
       let a = new Discord.RichEmbed()
       .setTitle("XP Level")
