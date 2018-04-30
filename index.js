@@ -97,6 +97,15 @@ bot.on("message", async message => {
       let xp = rows[0].xp;
 
       sql = `UPDATE xp SET xp = ${xp + genXp()} WHERE id = ${message.author.id}`
+
+      if(xp >= 100) {
+       let a = message.guild.roles.find("name", "Level 1") 
+       if(!a) return;
+       message.member.addRole(a);
+       return;
+          
+        
+      }
     }
     con.query(sql);
   });
