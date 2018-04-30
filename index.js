@@ -43,7 +43,8 @@ a.send(online).then(msg => msg.delete(5000));
 });
 
 var con = mysql.createConnection({
-  host: "99.000webhost.io:3306",
+  host: "99.000webhost.io",
+  port: "3306",
   user: "id5584969_samennis1",
   password: `${password}`,
   database: "sadb"
