@@ -98,8 +98,8 @@ bot.on("message", async message => {
 
       sql = `UPDATE xp SET xp = ${xp + genXp()} WHERE id = ${message.author.id}`
 
-      let level1 = message.guild.roles.has("name", "Level 1");
-      let level2 = message.guild.roles.has("name", "Level 2");
+      let level1 = message.guild.roles.find("name", "Level 1");
+      let level2 = message.guild.roles.find("name", "Level 2");
         if(xp >= 1000) {
           if(message.member.roles.has(level1)) return;
 
