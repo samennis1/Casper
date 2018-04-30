@@ -77,9 +77,12 @@ bot.on("message", async message => {
 
 bot.on("message", async message => {
 
+  if (message.author.bot) return;
+  if (message.channel.type == "dm") return;
 
   con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
-    if(err) throw err;
+    if(err) console.log(err);
+    
     console.log(rows);
 
     let sql;
@@ -135,8 +138,7 @@ if (cmd === "noodles") return message.channel.send("https://uz71pyzpz0-flywheel.
   let prefix = botconfig.prefix;
   if (!message.content.startsWith(prefix)) return;
 
-if (message.author.bot) return;
-if (message.channel.type == "dm") return;
+
 
 
 
