@@ -98,8 +98,17 @@ bot.on("message", async message => {
 
       sql = `UPDATE xp SET xp = ${xp + genXp()} WHERE id = ${message.author.id}`
 
-      if(xp >= 1000) {
-       let a = message.guild.roles.find("name", "Level 1") 
+      let a = message.guild.roles.find("name", "Level 1") 
+      let b = message.guild.roles.find("name", "Level 2") 
+
+      if(!xp >= 1000) {
+        if(!a) return;
+       if(message.member.roles.has(a)) {
+         message.member.removeRole(a);
+         message.member.send("Sneaky, trying to add a role without the XP, nop");
+       }
+      } else {
+
        if(!a) return;
        message.member.addRole(a);
        let levelup = new Discord.RichEmbed()
@@ -115,10 +124,16 @@ bot.on("message", async message => {
         
       }
 
-      if(xp >= 2000) {
-        let a = message.guild.roles.find("name", "Level 2") 
-        if(!a) return;
-        message.member.addRole(a);
+      if(!xp >= 2000) {
+        if(!b) return;
+        if(message.member.roles.has(b)) {
+          message.member.removeRole(b);
+          message.member.send("Sneaky, trying to add a role without the XP, nop");
+        }
+      } else {
+
+        if(!b) return;
+        message.member.addRole(b);
         return;
 
       }
