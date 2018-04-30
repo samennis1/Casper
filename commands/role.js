@@ -9,11 +9,21 @@ module.exports.run = async (bot, message, args) => {
         if(args[0] == "disable") {
             if(disabled == true) {
                 disabled = false;
-                message.reply("Activated");
+                let a = new Discord.RichEmbed()
+                .setTitle("Casper | Locked")
+                .setDescription("This command has been unlocked!")
+                .setThumbnail(bot.user.avatarURL)
+                .setColor("#ff0000");
+                return message.channel.send(a).then(msg => msg.delete(5000));
                 return;
             } else {
                 disabled = true;
-                message.reply("Disabled");
+                let a = new Discord.RichEmbed()
+                .setTitle("Casper | Error")
+                .setDescription("This command has been locked!")
+                .setThumbnail(bot.user.avatarURL)
+                .setColor("#ff0000");
+                return message.channel.send(a).then(msg => msg.delete(5000));
                 return;
             }
         }
