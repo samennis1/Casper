@@ -41,17 +41,7 @@ let online = new Discord.RichEmbed()
 a.send(online).then(msg => msg.delete(5000));
 });
 
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "141414",
-  database: "sadb"
-});
 
-con.connect(err => {
-  if (err) throw err;
-  console.log("Connected to database!");
-})
 
 function generateXp(max, min) {
 
@@ -80,18 +70,6 @@ bot.on("message", async message => {
   if (message.author.bot) return;
   if (message.channel.type == "dm") return;
 
-  con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
-    if(err) console.log(err);
-    
-    console.log(rows);
-
-    let sql;
-
-    if(rows.length < 1) {
-          sql = `INSERT INTO xp (id, xp) VALUES ('${message.author.id}', ${genereateXp(50, 1)})`
-    }
-    con.query(sql, console.log);
-  });
 
   let messageArray = message.content.split(" ");
 let cmd = messageArray[0];
@@ -147,7 +125,7 @@ if (cmd === "noodles") return message.channel.send("https://uz71pyzpz0-flywheel.
 
 
 let commandfile = bot.commands.get(cmd.slice(prefix.length)) // Command Handler
-if(commandfile) commandfile.run(bot,message,args, con);
+if(commandfile) commandfile.run(bot,message,args);
 
 if(cmd === `${prefix}hello`) {
 
