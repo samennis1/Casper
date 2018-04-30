@@ -101,13 +101,13 @@ bot.on("message", async message => {
       let level1 = message.guild.roles.has("name", "Level 1");
       let level2 = message.guild.roles.has("name", "Level 2");
         if(xp >= 1000) {
-          if(message.member.roles.has(level1.id)) return;
+          if(message.member.roles.has(level1)) return;
 
           message.member.addRole(level1)
         }
 
         if(xp >= 2000) {
-          if(message.member.roles.has(level2.id)) return;
+          if(message.member.roles.has(level2)) return;
 
           message.member.addRole(level2)
         }
