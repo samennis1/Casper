@@ -3,8 +3,12 @@ const Discord = require("discord.js");
 module.exports.run = async (bot, message, args, con) => {
     let target = message.mentions.users.first() || message.guild.members.get(args[1]) || message.author;
 
+    message.delete();
+
     con.query(`SELECT * FROM xp WHERE id = ${target.id}`, (err, rows ) => {
         if(err) throw err;
+
+
 
       let xp = rows[0].xp;
       
@@ -14,7 +18,7 @@ module.exports.run = async (bot, message, args, con) => {
       .setFooter("Current XP Level")
       .setDescription("XP Level => " + xp);
 
-      message.channel.send(a).then(msg => message.delete(5000));
+      message.channel.send(a).then(msg => msg.delete(5000));
       return;
 
     });
