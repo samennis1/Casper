@@ -98,7 +98,7 @@ bot.on("message", async message => {
 
       sql = `UPDATE xp SET xp = ${xp + genXp()} WHERE id = ${message.author.id}`
     }
-    con.query(sql, console.log);
+    con.query(sql);
   });
 
   let messageArray = message.content.split(" ");
