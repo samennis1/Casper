@@ -101,6 +101,7 @@ bot.on("message", async message => {
       if(xp >= 1000) {
        let a = message.guild.roles.find("name", "Level 1") 
        if(!a) return;
+       if(message.member.roles.has(a)) return;
        message.member.addRole(a);
        let levelup = new Discord.RichEmbed()
        .setTitle("Casper | Role Added")
@@ -118,7 +119,9 @@ bot.on("message", async message => {
       if(xp >= 2000) {
         let a = message.guild.roles.find("name", "Level 2") 
         if(!a) return;
-        message.member.addRole(a);
+        if(message.member.roles.has(b)) return;
+        message.member.removeRole(a);
+        message.member.addRole(b);
         return;
 
       }
