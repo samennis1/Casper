@@ -103,13 +103,13 @@ bot.on("message", async message => {
         if(xp >= 1000) {
           if(message.member.roles.has(level1)) return;
 
-          return message.member.addRole(level1.id);
+          return message.member.addRole(level1);
         }
 
         if(xp >= 2000) {
           if(message.member.roles.has(level2)) return;
 
-          return message.member.addRole(level2.id);
+          return message.member.addRole(level2);
         }
 
     }
