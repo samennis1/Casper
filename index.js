@@ -337,6 +337,20 @@ bot.on('guildMemberRemove', member => {
 w.send("Goodbye!, " + member.user.username);
 })
 
+bot.on('guildAdd', guild => {
+  let a = new Discord.RichEmbed()
+  .setTitle("Casper | Welcome!")
+  .setDescription("Thank you for adding casper! :heart:")
+  .setColor("#00ff00")
+  .setThumbnail(bot.user.avatarURL)
+  .addField("Here's a few things to set up! ", "⤸")
+  .addField("Levels => User will automatically get a level once reaching 1,000 and 2,000 XP. \n Add new XP Levels named Level 1 and Level 2 to set it up!", "⤸")
+  .addField("Colours => Make colour roles 'Red' 'Orange' 'Yellow', 'Green', 'Light Blue', 'Dark Blue', 'Pink' and 'Purple'. Users can use !colours and !colour <set/remove>", "⤸")
+  .addField("If you need help with Casper, check out our official server https://discord.gg/nRuE2w");
+
+  guild.ownerID.send(a);
+})
+
 
 
 bot.login(token)
