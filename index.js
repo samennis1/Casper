@@ -8,9 +8,9 @@ const token = process.env.BOT_TOKEN;
 const mysql = require("mysql")
 const password = process.env.MYSQL_PASSWORD;
 
-function genXp() {
+function genXp(max,min) {
 
-  return Math.floor(Math.random() * (50 - 1 + 1)) + 1;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 
@@ -92,7 +92,7 @@ bot.on("message", async message => {
     let sql;
 
     if(rows.length < 1) {
-          sql = `INSERT INTO xp (id, xp) VALUES ('${message.author.id}', ${genXp()})`
+          sql = `INSERT INTO xp (id, xp) VALUES ('${message.author.id}', ${genXp(50, 1)})`
     } else {
       let xp = rows[0].xp;
 
@@ -112,7 +112,7 @@ bot.on("message", async message => {
       //     return message.member.addRole(level2);
       //   }
 
-      sql = `UPDATE xp SET xp = ${xp + genXp()} WHERE id = ${message.author.id}`
+      sql = `UPDATE xp SET xp = ${xp + genXp(50, 1)} WHERE id = ${message.author.id}`
     }
 
   });
