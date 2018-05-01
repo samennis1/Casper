@@ -111,12 +111,12 @@ bot.on("message", async message => {
       if(!a) return;
       if(message.member.roles.find("name", "Level 2")) return;
       message.member.addRole(a);
-      let a = new Discord.RichEmbed()
+      let b = new Discord.RichEmbed()
       .setTitle("Congratulations!")
       .setDescription(`Congratulations ${message.author.id}! You have recieved Level 2!`)
       .setThumbnail(bot.user.avatarURL)
       .setColor("#00ff00");
-    message.channel.send(a);
+    message.channel.send(b);
 
     } else {
 
