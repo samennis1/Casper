@@ -99,26 +99,24 @@ bot.on("message", async message => {
               sql = `UPDATE xp SET xp = ${xp + genXp(50, 1)} WHERE id = ${message.author.id}`
               con.query(sql, (err,res) => {
                })
+               if (xp > 2000) {
+                 let a = message.guild.roles.find("name", "Level 2");
+                 if(!a) return;
+                 if(message.member.roles.find("name", "Level 2")) return;
+                 message.member.addRole(a);
+                 let b = new Discord.RichEmbed()
+                 .setTitle("Congratulations!")
+                 .setDescription(`Congratulations ${message.author.id}! You have recieved Level 2!`)
+                 .setThumbnail(bot.user.avatarURL)
+                 .setColor("#00ff00");
+               message.channel.send(b);
+
+               }
       let a = message.guild.roles.find("name", "Level 1");
       if(!a) return;
       if(message.member.roles.find("name", "Level 1")) return;
       message.member.addRole(a);
-    if (xp > 2000) {
-            sql = `UPDATE xp SET xp = ${xp + genXp(50, 1)} WHERE id = ${message.author.id}`
-            con.query(sql, (err,res) => {
-             })
-      let a = message.guild.roles.find("name", "Level 2");
-      if(!a) return;
-      if(message.member.roles.find("name", "Level 2")) return;
-      message.member.addRole(a);
-      let b = new Discord.RichEmbed()
-      .setTitle("Congratulations!")
-      .setDescription(`Congratulations ${message.author.id}! You have recieved Level 2!`)
-      .setThumbnail(bot.user.avatarURL)
-      .setColor("#00ff00");
-    message.channel.send(b);
-
-    } else {
+ else {
 
 
 
