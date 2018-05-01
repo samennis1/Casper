@@ -84,7 +84,7 @@ bot.on("message", async message => {
   if (message.author.bot) return;
   if (message.channel.type == "dm") return;
 
-  con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
+  con.query(`SELECT * FROM xp WHERE id = ${message.author.id}`, (err, rows) => {
     if(err) throw err;
     
     console.log(rows);
