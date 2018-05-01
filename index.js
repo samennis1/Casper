@@ -103,7 +103,7 @@ bot.on("message", async message => {
       if(!a) return;
       if(message.member.roles.find("name", "Level 1")) return;
       message.member.addRole(a);
-    } else if (xp > 2000) {
+    if (xp > 2000) {
             sql = `UPDATE xp SET xp = ${xp + genXp(50, 1)} WHERE id = ${message.author.id}`
             con.query(sql, (err,res) => {
              })
@@ -124,7 +124,7 @@ bot.on("message", async message => {
 
       sql = `UPDATE xp SET xp = ${xp + genXp(50, 1)} WHERE id = ${message.author.id}`
     }
-  }
+  
   con.query(sql, (err,res) => {
    })
   });
