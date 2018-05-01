@@ -1,7 +1,8 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (message,bot, args) => {
-    message.delete();
+    
+    message.delete().catch(O_o=>{});
     if(args.length < 0) {
         let a = new Discord.RichEmbed()
         .setTitle("Casper | ERROR")
@@ -19,7 +20,7 @@ let string = args.join(" ");
         .setThumbnail(bot.user.avatarURL);
 
        return message.channel.send(a).then(msg => msg.delete(5000));
-       
+
 }
 module.exports.help = {
     "name": "length"
