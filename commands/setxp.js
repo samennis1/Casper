@@ -58,7 +58,6 @@ if(!check) {
       }
     }
   }
-}
 
 module.exports.help = {
   "name": "setxp"
