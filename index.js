@@ -84,7 +84,7 @@ bot.on("message", async message => {
   if (message.author.bot) return;
   if (message.channel.type == "dm") return;
 
-  con.query(`SELECT * FROM xp WHERE id = ${message.author.id}`, (err, rows) => {
+  con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
     if(err) throw err;
     
     console.log(rows);
@@ -98,7 +98,8 @@ bot.on("message", async message => {
 
       sql = `UPDATE xp SET xp = ${xp + genXp(50, 1)} WHERE id = ${message.author.id}`
     }
-
+  con.query(sql, (err,res) => {
+   })
   });
 
   let messageArray = message.content.split(" ");
