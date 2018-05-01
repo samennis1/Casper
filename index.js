@@ -106,7 +106,7 @@ bot.on("message", async message => {
                  message.member.addRole(a);
                  let b = new Discord.RichEmbed()
                  .setTitle("Congratulations!")
-                 .setDescription(`Congratulations ${message.author.id}! You have recieved Level 2!`)
+                 .setDescription(`Congratulations <@${message.author.id}>! You have recieved Level 2!`)
                  .setThumbnail(bot.user.avatarURL)
                  .setColor("#00ff00");
                message.channel.send(b);
