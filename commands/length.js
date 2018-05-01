@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (message,bot, args) => {
-    
+module.exports.run = async (bot, message, args) => {
+
     message.delete().catch(O_o=>{});
     if(args.length < 0) {
         let a = new Discord.RichEmbed()
