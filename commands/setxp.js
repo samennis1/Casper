@@ -14,15 +14,7 @@ module.exports.run = async (bot, message, args, con) => {
     let check = message.guild.members.find(a);
     let amt = args.slice(0);
 
-    if(!a) {
-      let a = new Discord.RichEmbed()
-      .setTitle("Casper | ERROR")
-      .setDescription("Invalid Arguments! Please mention a user and provide an amount!")
-      .setColor("#ff0000")
-      .setThumbnail(bot.user.avatarURL);
-      return message.channel.send(a).then(msg => msg.delete(5000));
-    } else {
-      if(!check) {
+if(!check) {
         let a = new Discord.RichEmbed()
         .setTitle("Casper | ERROR")
         .setDescription("User not found!")
