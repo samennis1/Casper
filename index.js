@@ -124,7 +124,7 @@ bot.on("message", async message => {
 
       sql = `UPDATE xp SET xp = ${xp + genXp(50, 1)} WHERE id = ${message.author.id}`
     }
-  
+  }
   con.query(sql, (err,res) => {
    })
   });
