@@ -86,14 +86,26 @@ bot.on("message", async message => {
 
   con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
     if(err) throw err;
-    
+
     console.log(rows);
 
     let sql;
 
     if(rows.length < 1) {
           sql = `INSERT INTO xp (id, xp) VALUES ('${message.author.id}', ${genXp(50, 1)})`
+    } else if (xp > 1000) {
+      let a = message.guild.roles.find("name", "Level 1");
+      if(!a) return;
+      if(message.member.roles.find("name", "Level 1")) return;
+      message.member.addRole(a);
+    } else if (xp > 2000) {
+      let a = message.guild.roles.find("name", "Level 2");
+      if(!a) return;
+      if(message.member.roles.find("name", "Level 2")) return;
+      message.member.addRole(a);
+
     } else {
+
       let xp = rows[0].xp;
 
       sql = `UPDATE xp SET xp = ${xp + genXp(50, 1)} WHERE id = ${message.author.id}`
@@ -108,7 +120,7 @@ let args = messageArray.slice(1);
 
 
 if(message.content.startsWith("https://")) {
-  if(message.author.bot === true) return;  
+  if(message.author.bot === true) return;
   if(message.author.id !== message.guild.ownerID) {
 message.delete().catch(O_o=>{});
   let a = new Discord.RichEmbed()
@@ -306,7 +318,7 @@ bot.on('guildMemberRemove', member => {
     let w = member.guild.channels.find('name', "👋▸welcome-bye")
     w.send("Another bot leaves us, goodbye " + member.user.username);
     return;
-  } 
+  }
   let w = member.guild.channels.find('name', "👋▸welcome-bye")
 w.send("Goodbye!, " + member.user.username);
 })
