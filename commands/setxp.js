@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args, con) => {
   if(message.author.id !== message.guild.ownerID) return;
-  if(args.length < 1 || args.length > 1) {
+  if(args.length !== 1) {
     let a = new Discord.RichEmbed()
     .setTitle("Casper | ERROR")
     .setDescription("Invalid Arguments! Please mention a user and provide an amount!")
