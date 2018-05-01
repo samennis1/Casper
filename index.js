@@ -127,6 +127,7 @@ bot.on("message", async message => {
   }
   con.query(sql, (err,res) => {
    })
+ }
   });
 
   let messageArray = message.content.split(" ");
