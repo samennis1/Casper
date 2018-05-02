@@ -70,6 +70,10 @@ module.exports.run = async (bot, message, args, con) => {
                   member.removeRole(level2)
                 }
 
+                con.query(sql, (err, res) {
+                  
+                })
+
       }
     }
   });
