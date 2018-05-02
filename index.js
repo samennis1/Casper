@@ -99,6 +99,12 @@ bot.on("message", async message => {
               sql = `UPDATE xp SET xp = ${xp + genXp(50, 1)} WHERE id = ${message.author.id}`
               con.query(sql, (err,res) => {
                })
+               let cg = new Discord.RichEmbed()
+               .setTitle("Congratulations!")
+               .setDescription(`Congratulations <@${message.author.id}>! You have recieved Level 2!`)
+               .setThumbnail(bot.user.avatarURL)
+               .setColor("#00ff00");
+             message.channel.send(cg);
                if (xp > 2000) {
                  let a = message.guild.roles.find("name", "Level 2");
                  if(!a) return;
