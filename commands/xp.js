@@ -26,7 +26,7 @@ module.exports.run = async (bot, message, args, con) => {
       let xp = rows[0].xp;
 
 
-      
+      if (!target) {
       let a = new Discord.RichEmbed()
       .setTitle("XP Level")
       .setColor("#00ff00")
@@ -34,9 +34,20 @@ module.exports.run = async (bot, message, args, con) => {
       .setDescription(`XP Level for <@${message.author.id}>`)
       .addField("XP", xp)
       .setThumbnail(bot.user.avatarURL);
-  
+
       message.channel.send(a).then(msg => msg.delete(5000));
       return;
+    } else {
+      let a = new Discord.RichEmbed()
+      .setTitle("XP Level")
+      .setColor("#00ff00")
+      .setFooter("Current XP Level")
+      .setDescription(`XP Level for <@${target.id}>`)
+      .addField("XP", xp)
+      .setThumbnail(bot.user.avatarURL);
+
+      message.channel.send(a).then(msg => msg.delete(5000));
+    }
 
     });
 }
