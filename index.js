@@ -93,8 +93,6 @@ bot.on("message", async message => {
 
     if(rows.length < 1) {
           sql = `INSERT INTO xp (id, xp) VALUES ('${message.author.id}', ${genXp(50, 1)})`
-          con.query(sql, (err,res) => {
-           })
     } else {
       let xp = rows[0].xp
       if(xp > 1000) {
@@ -130,6 +128,8 @@ bot.on("message", async message => {
   con.query(sql, (err,res) => {
    })
  }
+ con.query(sql, (err,res) => {
+  })
   });
 
   let messageArray = message.content.split(" ");
