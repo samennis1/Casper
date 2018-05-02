@@ -1,12 +1,16 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args, con) => {
-  if(!args.length == 0) {
-    let a = new Discord.RichEmbed()
-    .setDescription("Invalid Arguments! Specify a user!")
-    .setColor("#ff0000")
-    .setTitle("Casper | ERROR")
-    .setThumbnail(bot.user.avatarURL);
+
+  if(args.length > 0) return;
+    let target = args[0];
+    if(!target) {
+      let a = new Discord.RichEmbed()
+      .setDescription("Please specify a user!")
+      .setColor("#ff0000")
+      .setTitle("Casper | ERROR")
+      .setThumbnail(bot.user.avatarURL);
+
 
     message.channel.send(a).then(msg => msg.delete(5000));
   } else {
