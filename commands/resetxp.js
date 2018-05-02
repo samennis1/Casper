@@ -47,7 +47,7 @@ module.exports.run = async (bot, message, args, con) => {
         .setThumbnail(bot.user.avatarURL);
 
         message.channel.send(a).then(msg => msg.delete(5000));
-      }
+
       } else {
         let level1 = message.guild.roles.find("name", "Level 1");
         let level2 = message.guild.roles.find("name", "Level 2");
