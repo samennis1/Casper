@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args, con) => {
     message.channel.send(a).then(msg => msg.delete(5000));
   } else {
     let target = args[0];
-    let look = message.guild.members.find("name", `${target}`);
+    let look = message.guild.members.find("id", `${target.id}`);
     let member = message.member;
 
     if(!look) {
