@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args, con) => {
 
       message.channel.send(a).then(msg => msg.delete(5000));
     } else {
-      con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) {
+      con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
         if(err) throw err;
 
       let xp = rows[0].xp;
