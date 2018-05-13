@@ -318,11 +318,11 @@ console.log("User " + member.user.username + " has joined!")
 if(member.user.bot) {
   var role = member.guild.roles.find('name', "Bot");
   member.addRole(role);
-  let w = member.guild.channels.find('name', "👋▸welcome-bye")
+  let w = member.guild.channels.find('name', "welcome")
   w.send("Welcome, " + `<@${member.user.id}>` + " to the Extral Community!");
 return;
 }
-let w = member.guild.channels.find('name', "👋▸welcome-bye")
+let w = member.guild.channels.find('name', "welcome")
 w.send("Welcome, " + `<@${member.user.id}>` + " to the Extral Community!");
 
 var role = member.guild.roles.find('name', "Verify");
@@ -333,11 +333,11 @@ member.guild.channels.find("name", "verification").send("Please read #rules and 
 
 bot.on('guildMemberRemove', member => {
   if(member.user.bot) {
-    let w = member.guild.channels.find('name', "👋▸welcome-bye")
+    let w = member.guild.channels.find('name', "welcome")
     w.send("Another bot leaves us, goodbye " + member.user.username);
     return;
   }
-  let w = member.guild.channels.find('name', "👋▸welcome-bye")
+  let w = member.guild.channels.find('name', "welcome")
 w.send("Goodbye!, " + member.user.username);
 })
 
